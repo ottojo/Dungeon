@@ -57,6 +57,7 @@
     <Compile Include="GenericGegenstand.cs" />
     <Compile Include="GegenstandUtil.cs" />
     <Compile Include="Held.cs" />
+    <Compile Include="Helm.cs" />
     <Compile Include="IDefensiv.cs" />
     <Compile Include="IHeilend.cs" />
     <Compile Include="IKampf.cs" />

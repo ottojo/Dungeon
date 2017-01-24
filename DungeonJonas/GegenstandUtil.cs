@@ -10,6 +10,7 @@ namespace DungeonJonas
 {
     static class GegenstandUtil
     {
+        private static Random random = new Random();
         public static List<AGegenstand> fromFile(string filename)
         {
             List<AGegenstand> list = new List<AGegenstand>();
@@ -29,6 +30,18 @@ namespace DungeonJonas
                 list.Add(gegenstand);
             }
             return list;
+        }
+
+        public static AGegenstand randomGegenstand()
+        {
+            if(random.Next(0,2) == 0)
+            {
+                return new Langschwert();
+            }
+            else
+            {
+                return new Helm();
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace DungeonJonas
         private static int nextId = 0;
         protected int id;
 
-        public Inventar Inventar;
+        public Inventar Inventar { get; set; }
 
         public int MaxLebensPunkte { get { return maxLebensPunkte; } }
 
@@ -85,6 +85,17 @@ namespace DungeonJonas
 
         public void verletzen(int schaden)
         {
+            int ruestung = 1;
+            foreach (AGegenstand gegenstand in Inventar)
+            {
+                if (gegenstand is IDefensiv)
+                {
+                    ruestung += (gegenstand as IDefensiv).Ruestungswert;
+                }
+            }
+
+            schaden = (int)Math.Floor(schaden * (Math.Pow(Math.E, 0.01 * Math.Log(2)*ruestung)));
+
             this.lebensPunkte -= schaden;
             if (lebensPunkte < 0)
                 lebensPunkte = 0;

@@ -61,9 +61,11 @@ namespace DungeonJonas
 
         public override string ToString()
         {
-            String output = "Gegenstand " + id + ": " + this.Name + ";" + Goldwert + " Gold; " + stabilitaet + "/" + maxStabilitaet + " Stabilität";
+            String output = "Gegenstand " + id + ": " + this.Name + "; " + Goldwert + " Gold; " + stabilitaet + "/" + maxStabilitaet + " Stabilität";
             if (this is IOffensiv)
                 output += "; " + (this as IOffensiv).Angriffswert + " Angriff";
+            if (this is IDefensiv)
+                output += "; " + (this as IDefensiv).Ruestungswert + " Ruestung";
             return output;
         }
 
@@ -80,6 +82,21 @@ namespace DungeonJonas
                     return true;
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            {
+                int hash = 17;
+                hash = hash * 23 + id.GetHashCode();
+                hash = hash * 23 + goldwert.GetHashCode();
+                hash = hash * 23 + gewicht.GetHashCode();
+                hash = hash * 23 + stabilitaet.GetHashCode();
+                hash = hash * 23 + maxStabilitaet.GetHashCode();
+                hash = hash * 23 + gewicht.GetHashCode();
+                hash = hash * 23 + name.GetHashCode();
+                return hash;
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace DungeonJonas
                     {
                         feld[spalte, zeile] = new Feld(FeldTyp.Leer, Constants.feldGroesse);
                         if (random.Next(0, prob) == 0)
-                            feld[spalte, zeile].Gegenstand = new Langschwert(); //TODO Random Gegenstand generation
+                            feld[spalte, zeile].Gegenstand = GegenstandUtil.randomGegenstand();
                     }
             }
         }

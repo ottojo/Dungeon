@@ -8,7 +8,6 @@ namespace DungeonJonas
 {
     interface IDefensiv
     {
-        //TODO Defensive Gegenstände implementieren
         int Ruestungswert { get; set; }
     }
 }
